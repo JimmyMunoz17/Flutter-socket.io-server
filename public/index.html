@@ -24,9 +24,21 @@
 
         // emitir un evento con el socket
         socket.emit('mensaje', { nombre: 'Jimmy' });
+
         // escuchando lo que se envía desde el servidor
-        socket.on('mensaje', function (payload) {
+        // socket.on('mensaje', function (payload) {
+        //     console.log('Escuchando:', payload);
+        // });
+
+
+        socket.on('nuevo-mensaje', function (payload) {
             console.log('Escuchando:', payload);
+        });
+
+        socket.on('active-bands', function (bands) {
+            //console.log(bands);
+            console.clear();
+            console.table(bands); //mostrar en forma de tabla 
         });
     </script>
 </body>
